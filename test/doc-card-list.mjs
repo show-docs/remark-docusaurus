@@ -58,3 +58,11 @@ foo bar
 
   getUtils(t).sameText(expected, output);
 });
+
+test('ignore child', async (t) => {
+  const input = '-   :docusaurus-doc-card-list';
+
+  const output = await transform(input, docCardList);
+
+  getUtils(t).sameText(input, output);
+});
