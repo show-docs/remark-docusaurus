@@ -1,0 +1,3 @@
+#!/bin/sh
+
+npm exec nice-move lint commit

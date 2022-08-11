@@ -1,0 +1,68 @@
+{
+  "name": "remark-docusaurus",
+  "version": "0.0.0",
+  "description": "Remark plugin for docusaurus features",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "code-block",
+    "doc",
+    "document",
+    "documentation",
+    "docusaurus",
+    "markdown",
+    "remark",
+    "remark-plugin",
+    "site-generator"
+  ],
+  "homepage": "https://github.com/nice-move/remark-docusaurus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nice-move/remark-docusaurus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nice-move/remark-docusaurus/issues"
+  },
+  "main": "lib/index.mjs",
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "scripts": {
+    "lint:staged": "nice-move lint staged",
+    "prepare": "nice-move git hooks",
+    "prepublishOnly": "npm run lint:staged && npm test",
+    "test": "ava --fail-fast"
+  },
+  "dependencies": {
+    "docusaurus-remark-plugin-tab-blocks": "^1.2.0",
+    "unist-util-visit": "^4.1.0"
+  },
+  "devDependencies": {
+    "@bring-it/npm": "^0.0.3",
+    "@nice-move/cli": "^0.9.8",
+    "@nice-move/eslint-config-base": "^0.8.7",
+    "@nice-move/prettier-config": "^0.7.1",
+    "ava": "^4.3.1",
+    "eslint": "^8.21.0",
+    "eslint-plugin-ava": "^13.2.0",
+    "garou": "^0.5.0",
+    "prettier": "^2.7.1",
+    "remark": "^12.0.1",
+    "remark-mdx": "^1.6.22"
+  },
+  "engines": {
+    "node": "^16.13.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "eslintConfig": {
+    "extends": "@nice-move/eslint-config-base"
+  },
+  "prettier": "@nice-move/prettier-config"
+}
