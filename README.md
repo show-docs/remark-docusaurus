@@ -20,7 +20,7 @@ npm install remark-docusaurus --save-dev
 
 ## Usage
 
-### DocCardList placeholder
+### DocCardList
 
 #### Options.placeholder
 
@@ -51,6 +51,36 @@ import { useCurrentSidebarCategory } from '@docusaurus/theme-common';
 
 foo bar
 ```
+
+### AutoTabs
+
+#### Options.labels
+
+- type: `object`
+- default: {}
+- description: Will merge with default presets
+
+Turn:
+
+````markdown
+```js tab
+
+```
+````
+
+Into:
+
+````md
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem label="JavaScript">
+  ```js tab
+  ```
+  </TabItem>
+</Tabs>
+````
 
 ## Tips
 

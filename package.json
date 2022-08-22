@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -38,7 +38,9 @@
     "test": "ava --fail-fast"
   },
   "dependencies": {
-    "unist-util-visit": "^4.1.0"
+    "markdown-code-block-meta": "^0.0.2",
+    "titleize": "^3.0.0",
+    "unist-util-visit": "^4.1.1"
   },
   "devDependencies": {
     "@bring-it/npm": "^0.0.3",
