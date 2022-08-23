@@ -20,6 +20,26 @@ npm install remark-docusaurus --save-dev
 
 ## Usage
 
+```cjs
+// docusaurus.config.cjs
+module.exports = async () => {
+  const { autoTabs, docCardList } = await import('remark-docusaurus');
+
+  return {
+    presets: [
+      [
+        'classic',
+        {
+          docs: {
+            remarkPlugins: [autoTabs, docCardList]
+          }
+        }
+      ]
+    ]
+  };
+};
+```
+
 ### DocCardList
 
 #### Options.placeholder
