@@ -3,19 +3,12 @@ import test from 'ava';
 
 import { docCardList } from '../lib/index.mjs';
 
-import { transform } from './helper/lib.mjs';
+import { ErrorSnapshots, transform } from './helper/lib.mjs';
 
-test('validate', (t) => {
-  t.throws(() => transform('', docCardList, { placeholder: true }), {
-    instanceOf: TypeError,
-    message: '`placeholder` should be string',
-  });
-
-  t.throws(() => transform('', docCardList, { placeholder: '12345' }), {
-    instanceOf: TypeError,
-    message: '`placeholder` should be longer than 5 characters',
-  });
-});
+test('validate', ErrorSnapshots, [
+  () => docCardList({ placeholder: true }),
+  () => docCardList({ placeholder: '12345' }),
+]);
 
 async function TransformMacro(t, input, options) {
   const output = await transform(input, docCardList, options);

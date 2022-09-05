@@ -63,11 +63,9 @@ Into:
 ```markdown
 import DocCardList from '@theme/DocCardList';
 
-import { useCurrentSidebarCategory } from '@docusaurus/theme-common';
-
 # heading
 
-<DocCardList items={useCurrentSidebarCategory().items} />
+<DocCardList />
 
 foo bar
 ```

@@ -3,7 +3,13 @@ import test from 'ava';
 
 import { autoTabs } from '../lib/index.mjs';
 
-import { transform } from './helper/lib.mjs';
+import { ErrorSnapshots, transform } from './helper/lib.mjs';
+
+test('validate', ErrorSnapshots, [
+  () => autoTabs({ labels: '' }),
+  () => autoTabs({ labels: [] }),
+  () => autoTabs({ labels: null }),
+]);
 
 async function TransformMacro(t, input, options) {
   const output = await transform(input, autoTabs, options);
