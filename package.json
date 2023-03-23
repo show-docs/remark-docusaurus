@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -41,21 +41,21 @@
   "dependencies": {
     "markdown-code-block-meta": "^0.0.2",
     "titleize": "^3.0.0",
-    "unist-util-visit": "^4.1.1"
+    "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
-    "@bring-it/npm": "^0.1.0",
-    "@nice-move/cli": "^0.9.8",
-    "@nice-move/eslint-config-base": "^0.8.8",
-    "@nice-move/prettier-config": "^0.7.2",
-    "ava": "^4.3.3",
-    "eslint": "^8.23.0",
-    "eslint-plugin-ava": "^13.2.0",
-    "garou": "^0.5.0",
-    "prettier": "^2.7.1",
+    "@bring-it/npm": "^0.1.1",
+    "@nice-move/cli": "^0.10.3",
+    "@nice-move/eslint-config-base": "^0.9.6",
+    "@nice-move/prettier-config": "^0.8.0",
+    "ava": "^5.2.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-ava": "^14.0.0",
+    "garou": "^0.6.4",
+    "prettier": "^2.8.6",
     "remark": "^12.0.1",
     "remark-mdx": "^1.6.22",
-    "unist-util-remove-position": "^4.0.1"
+    "unist-util-remove-position": "^4.0.2"
   },
   "engines": {
     "node": "^16.13.0 || >=18.0.0"
