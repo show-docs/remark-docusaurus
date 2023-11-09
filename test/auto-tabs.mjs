@@ -1,19 +1,17 @@
-// eslint-disable-next-line import/no-unresolved
 import test from 'ava';
 
 import { autoTabs } from '../lib/index.mjs';
 
-import { ErrorSnapshots, transform } from './helper/lib.mjs';
+import { ErrorSnapshot, TransformSnapshot } from './helper/lib.mjs';
 
-test('validate', ErrorSnapshots, [
+test('validate', ErrorSnapshot, [
   () => autoTabs({ labels: '' }),
   () => autoTabs({ labels: [] }),
   () => autoTabs({ labels: null }),
 ]);
 
 async function TransformMacro(t, input, options) {
-  const output = await transform(input, autoTabs, options);
-  t.snapshot(output);
+  return TransformSnapshot(t, input, autoTabs, options);
 }
 
 test(

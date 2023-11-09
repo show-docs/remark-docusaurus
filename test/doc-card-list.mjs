@@ -1,18 +1,16 @@
-// eslint-disable-next-line import/no-unresolved
 import test from 'ava';
 
 import { docCardList } from '../lib/index.mjs';
 
-import { ErrorSnapshots, transform } from './helper/lib.mjs';
+import { ErrorSnapshot, TransformSnapshot } from './helper/lib.mjs';
 
-test('validate', ErrorSnapshots, [
+test('validate', ErrorSnapshot, [
   () => docCardList({ placeholder: true }),
   () => docCardList({ placeholder: '12345' }),
 ]);
 
 async function TransformMacro(t, input, options) {
-  const output = await transform(input, docCardList, options);
-  t.snapshot(output);
+  return TransformSnapshot(t, input, docCardList, options);
 }
 
 test(

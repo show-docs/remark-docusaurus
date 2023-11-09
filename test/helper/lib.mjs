@@ -2,23 +2,39 @@ import remark from 'remark';
 import remarkMdx from 'remark-mdx';
 import { removePosition } from 'unist-util-remove-position';
 
-export function transform(input, plugin, options = {}) {
-  return remark()
-    .use(remarkMdx)
-    .use(plugin, options)
-    .process(input)
-    .then((file) => file.toString());
+function removePST(ast) {
+  removePosition(ast, { force: true });
+
+  return ast.children;
 }
 
-export async function getAst(input) {
-  const tree = await remark().use(remarkMdx).parse(input);
+export async function TransformSnapshot(
+  t,
+  input,
+  plugin,
+  option = {},
+  show = true,
+) {
+  const instance = remark().use(remarkMdx).use(plugin, option);
 
-  removePosition(tree, true);
+  const ast = instance.parse(input);
 
-  return tree;
+  t.snapshot(input);
+  t.snapshot(removePST(ast));
+
+  const tree = removePST(await instance.run(ast));
+
+  t.snapshot(tree);
+
+  if (show) {
+    const output = await instance
+      .process(input)
+      .then((file) => file.toString().trim());
+    t.snapshot(output);
+  }
 }
 
-export function ErrorSnapshots(t, funcs) {
+export function ErrorSnapshot(t, funcs) {
   for (const func of funcs) {
     const error = t.throws(
       () => {
