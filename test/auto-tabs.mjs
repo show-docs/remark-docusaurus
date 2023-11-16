@@ -8,6 +8,7 @@ test('validate', ErrorSnapshot, [
   () => autoTabs({ labels: '' }),
   () => autoTabs({ labels: [] }),
   () => autoTabs({ labels: null }),
+  () => autoTabs({ version: null }),
 ]);
 
 async function TransformMacro(t, input, options) {
@@ -23,16 +24,10 @@ test(
 
 \`\`\`ts tab
 \`\`\`
-`,
-);
 
-test(
-  'lang',
-  TransformMacro,
-  `
-## rre
+---
 
-\`\`\`any tab
+\`\`\`css tab
 \`\`\`
 `,
 );
@@ -44,18 +39,17 @@ test(
 \`\`\`js tab="54654 E pd"
 \`\`\`
 
-## fds
 
-\`\`\`js tab=ppp
+\`\`\`any tab
 \`\`\`
 `,
 );
 
 test(
-  'child',
+  'ignore child',
   TransformMacro,
   `
--  \`\`\`js
+-  \`\`\`js tab
     \`\`\`
 `,
 );

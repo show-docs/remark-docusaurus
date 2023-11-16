@@ -1,11 +1,28 @@
-import remark from 'remark';
+import cloneDeep from 'lodash/cloneDeep.js';
+import { format } from 'prettier';
+import { remark } from 'remark';
+import remark12 from 'remark-12';
+import remarkDirective from 'remark-directive';
+import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdx from 'remark-mdx';
+import remarkMdx1 from 'remark-mdx-1';
 import { removePosition } from 'unist-util-remove-position';
+import { parse } from 'yaml';
 
 function removePST(ast) {
-  removePosition(ast, { force: true });
+  const io = cloneDeep(ast);
 
-  return ast.children;
+  removePosition(io, { force: true });
+
+  return io.children;
+}
+
+function setMatter() {
+  return (tree, file) => {
+    if (tree.children[0]?.type === 'yaml') {
+      file.data.frontMatter = parse(tree.children[0].value);
+    }
+  };
 }
 
 export async function TransformSnapshot(
@@ -15,23 +32,43 @@ export async function TransformSnapshot(
   option = {},
   show = true,
 ) {
-  const instance = remark().use(remarkMdx).use(plugin, option);
-
-  const ast = instance.parse(input);
-
   t.snapshot(input);
-  t.snapshot(removePST(ast));
 
-  const tree = removePST(await instance.run(ast));
+  async function runner(version) {
+    const instance =
+      version === 2
+        ? remark12()
+            .use(remarkMdx1)
+            .use(plugin, { ...option, version })
+        : remark()
+            .use(setMatter)
+            .use(remarkFrontmatter, ['yaml'])
 
-  t.snapshot(tree);
+            .use(remarkMdx)
+            .use(remarkDirective)
+            .use(plugin, { ...option, version });
 
-  if (show) {
-    const output = await instance
-      .process(input)
-      .then((file) => file.toString().trim());
-    t.snapshot(output);
+    const ast = instance.parse(input.trimStart());
+
+    t.snapshot(removePST(ast));
+
+    const tree = await instance.run(ast);
+
+    t.snapshot(removePST(tree));
+
+    if (show) {
+      const output = await instance
+        .process(input.trimStart())
+        .then((file) => file.toString())
+        .then((file) => format(file, { parser: 'mdx', singleQuote: true }));
+
+      t.snapshot(output);
+    }
   }
+
+  await runner(2);
+
+  await runner(3);
 }
 
 export function ErrorSnapshot(t, funcs) {

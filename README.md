@@ -31,7 +31,7 @@ module.exports = async () => {
         'classic',
         {
           docs: {
-            remarkPlugins: [autoTabs, docCardList]
+            beforeDefaultRemarkPlugins: [autoTabs, docCardList]
           }
         }
       ]
@@ -42,11 +42,12 @@ module.exports = async () => {
 
 ### DocCardList
 
-#### Options.placeholder
+#### Options.version
 
-- type: `string`
-- minLength: 5
-- default: `:docusaurus-doc-card-list`
+- type: `integer`
+- enum: [2, 3]
+- default: 2
+- description: Docusaurus version
 
 Turn:
 
@@ -78,6 +79,13 @@ foo bar
 - default: {}
 - description: Will merge with default presets
 
+#### Options.version
+
+- type: `integer`
+- enum: [2, 3]
+- default: 2
+- description: Docusaurus version
+
 Turn:
 
 ````markdown
@@ -102,7 +110,7 @@ import TabItem from '@theme/TabItem';
 
 ## Tips
 
-This plugin only compatible with `remark@^12` / `remark-mdx@1` or `docusaurus@2`.
+This plugin only compatible with `docusaurus@2/remark@^12/mdx@1` and `docusaurus@3/remark@^13+/mdx@3+`.
 
 ## Related
 

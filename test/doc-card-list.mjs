@@ -4,17 +4,14 @@ import { docCardList } from '../lib/index.mjs';
 
 import { ErrorSnapshot, TransformSnapshot } from './helper/lib.mjs';
 
-test('validate', ErrorSnapshot, [
-  () => docCardList({ placeholder: true }),
-  () => docCardList({ placeholder: '12345' }),
-]);
+test('validate', ErrorSnapshot, [() => docCardList({ version: 4 })]);
 
 async function TransformMacro(t, input, options) {
   return TransformSnapshot(t, input, docCardList, options);
 }
 
 test(
-  'default placeholder',
+  'default',
   TransformMacro,
   `
 # heading
@@ -23,19 +20,6 @@ test(
 
 foo bar
 `,
-);
-
-test(
-  'custom placeholder',
-  TransformMacro,
-  `
-# heading
-
-:doc-card-list
-
-foo bar
-`,
-  { placeholder: ':doc-card-list' },
 );
 
 test(
