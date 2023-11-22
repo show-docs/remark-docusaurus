@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.3.15",
+  "version": "0.4.0",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -51,18 +51,16 @@
     "@nice-move/eslint-config-base": "^0.9.24",
     "@nice-move/prettier-config": "^0.9.8",
     "ava": "^5.3.1",
-    "eslint": "^8.53.0",
+    "eslint": "^8.54.0",
     "eslint-plugin-ava": "^14.0.0",
-    "garou": "^0.6.18",
+    "garou": "^0.6.19",
     "lodash": "^4.17.21",
     "prettier": "^3.1.0",
     "remark": "^15.0.1",
-    "remark-12": "npm:remark@12",
     "remark-admonitions": "^1.2.1",
     "remark-directive": "^3.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx": "^3.0.0",
-    "remark-mdx-1": "npm:remark-mdx@^1.6.22",
     "unist-util-remove-position": "^5.0.0",
     "yaml": "^2.3.4"
   },

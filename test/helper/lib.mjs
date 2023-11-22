@@ -1,11 +1,9 @@
 import cloneDeep from 'lodash/cloneDeep.js';
 import { format } from 'prettier';
 import { remark } from 'remark';
-import remark12 from 'remark-12';
 import remarkDirective from 'remark-directive';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdx from 'remark-mdx';
-import remarkMdx1 from 'remark-mdx-1';
 import { removePosition } from 'unist-util-remove-position';
 import { parse } from 'yaml';
 
@@ -25,50 +23,31 @@ function setMatter() {
   };
 }
 
-export async function TransformSnapshot(
-  t,
-  input,
-  plugin,
-  option = {},
-  show = true,
-) {
+export async function TransformSnapshot(t, input, plugin, option = {}) {
   t.snapshot(input);
 
-  async function runner(version) {
-    const instance =
-      version === 2
-        ? remark12()
-            .use(remarkMdx1)
-            .use(plugin, { ...option, version })
-        : remark()
-            .use(setMatter)
-            .use(remarkFrontmatter, ['yaml'])
+  const instance = remark()
+    .use(setMatter)
+    .use(remarkFrontmatter, ['yaml'])
 
-            .use(remarkMdx)
-            .use(remarkDirective)
-            .use(plugin, { ...option, version });
+    .use(remarkMdx)
+    .use(remarkDirective)
+    .use(plugin, option);
 
-    const ast = instance.parse(input.trimStart());
+  const ast = instance.parse(input.trimStart());
 
-    t.snapshot(removePST(ast));
+  t.snapshot(removePST(ast));
 
-    const tree = await instance.run(ast);
+  const tree = await instance.run(ast);
 
-    t.snapshot(removePST(tree));
+  t.snapshot(removePST(tree));
 
-    if (show) {
-      const output = await instance
-        .process(input.trimStart())
-        .then((file) => file.toString())
-        .then((file) => format(file, { parser: 'mdx', singleQuote: true }));
+  const output = await instance
+    .process(input.trimStart())
+    .then((file) => file.toString())
+    .then((file) => format(file, { parser: 'mdx', singleQuote: true }));
 
-      t.snapshot(output);
-    }
-  }
-
-  await runner(2);
-
-  await runner(3);
+  t.snapshot(output);
 }
 
 export function ErrorSnapshot(t, funcs) {

@@ -8,17 +8,14 @@ test('validate', ErrorSnapshot, [
   () => draftSAdmonition({ title: 0 }),
   () => draftSAdmonition({ title: '', type: [] }),
   () => draftSAdmonition({ title: '', text: {} }),
-  () => draftSAdmonition({ version: 4 }),
 ]);
 
 async function TransformMacro(t, input) {
-  return TransformSnapshot(
-    t,
-    input,
-    draftSAdmonition,
-    { title: 'example', type: 'success', text: '56565656' },
-    false,
-  );
+  return TransformSnapshot(t, input, draftSAdmonition, {
+    title: 'example',
+    type: 'success',
+    text: '56565656',
+  });
 }
 
 test(

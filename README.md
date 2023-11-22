@@ -42,13 +42,6 @@ module.exports = async () => {
 
 ### DocCardList
 
-#### Options.version
-
-- type: `integer`
-- enum: [2, 3]
-- default: 2
-- description: Docusaurus version
-
 Turn:
 
 ```markdown
@@ -78,13 +71,6 @@ foo bar
 - type: `object`
 - default: {}
 - description: Will merge with default presets
-
-#### Options.version
-
-- type: `integer`
-- enum: [2, 3]
-- default: 2
-- description: Docusaurus version
 
 Turn:
 

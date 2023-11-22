@@ -8,7 +8,6 @@ test('validate', ErrorSnapshot, [
   () => autoTabs({ labels: '' }),
   () => autoTabs({ labels: [] }),
   () => autoTabs({ labels: null }),
-  () => autoTabs({ version: null }),
 ]);
 
 async function TransformMacro(t, input, options) {
