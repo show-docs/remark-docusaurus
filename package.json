@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -20,13 +20,13 @@
     "site-generator",
     "tabs"
   ],
-  "homepage": "https://github.com/nice-move/remark-docusaurus",
+  "homepage": "https://github.com/show-docs/remark-docusaurus",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nice-move/remark-docusaurus.git"
+    "url": "https://github.com/show-docs/remark-docusaurus.git"
   },
   "bugs": {
-    "url": "https://github.com/nice-move/remark-docusaurus/issues"
+    "url": "https://github.com/show-docs/remark-docusaurus/issues"
   },
   "main": "lib/index.mjs",
   "files": [

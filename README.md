@@ -20,23 +20,31 @@ npm install remark-docusaurus --save-dev
 
 ## Usage
 
-```cjs
-// docusaurus.config.cjs
-module.exports = async () => {
-  const { autoTabs, docCardList } = await import('remark-docusaurus');
+```mjs
+// docusaurus.config.mjs
+import {
+  autoTabs,
+  docCardList,
+  draftSAdmonition,
+  svgToObject
+} from 'remark-docusaurus';
 
-  return {
-    presets: [
-      [
-        'classic',
-        {
-          docs: {
-            beforeDefaultRemarkPlugins: [autoTabs, docCardList]
-          }
+export default {
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          beforeDefaultRemarkPlugins: [
+            autoTabs,
+            docCardList,
+            draftSAdmonition,
+            svgToObject
+          ]
         }
-      ]
+      }
     ]
-  };
+  ]
 };
 ```
 
@@ -96,10 +104,11 @@ import TabItem from '@theme/TabItem';
 
 ## Tips
 
-This plugin only compatible with `docusaurus@2/remark@^12/mdx@1` and `docusaurus@3/remark@^13+/mdx@3+`.
+This plugin only compatible with `docusaurus@3/remark@^13+/mdx@3+`.
 
 ## Related
 
 - [markdown-code-block-meta](https://github.com/nice-move/markdown-code-block-meta)
+- [rehype-extended-table](https://github.com/nice-move/rehype-extended-table)
 - [remark-code-example](https://github.com/nice-move/remark-code-example)
 - [remark-kroki](https://github.com/nice-move/remark-kroki)
