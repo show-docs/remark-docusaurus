@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -9,6 +9,7 @@
   },
   "keywords": [
     "code-block",
+    "directive",
     "doc",
     "document",
     "documentation",
@@ -51,9 +52,9 @@
     "@nice-move/eslint-config-base": "^0.9.24",
     "@nice-move/prettier-config": "^0.9.8",
     "ava": "^5.3.1",
-    "eslint": "^8.54.0",
+    "eslint": "^8.55.0",
     "eslint-plugin-ava": "^14.0.0",
-    "garou": "^0.6.19",
+    "garou": "^0.6.20",
     "lodash": "^4.17.21",
     "prettier": "^3.1.0",
     "remark": "^15.0.1",
@@ -71,7 +72,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@8.10.5",
+  "packageManager": "pnpm@8.11.0",
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
   },

@@ -52,3 +52,18 @@ test(
     \`\`\`
 `,
 );
+
+test(
+  'directive',
+  TransformMacro,
+  `
+:::TabItem[asads]{value="as da"}
+fdsfsd
+:::
+
+:::TabItem
+111111111111111
+:::
+
+`,
+);
