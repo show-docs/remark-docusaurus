@@ -1,6 +1,6 @@
 {
   "name": "remark-docusaurus",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Remark plugin for docusaurus features",
   "license": "MIT",
   "author": {
@@ -47,16 +47,16 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@bring-it/npm": "^0.3.9",
-    "@nice-move/cli": "^0.11.1",
-    "@nice-move/eslint-config-base": "^0.9.24",
-    "@nice-move/prettier-config": "^0.9.8",
-    "ava": "^5.3.1",
-    "eslint": "^8.55.0",
+    "@bring-it/npm": "^0.5.1",
+    "@nice-move/cli": "^0.11.3",
+    "@nice-move/eslint-config-base": "^0.11.1",
+    "@nice-move/prettier-config": "^0.10.0",
+    "ava": "^6.0.1",
+    "eslint": "^8.56.0",
     "eslint-plugin-ava": "^14.0.0",
-    "garou": "^0.6.20",
+    "garou": "^0.6.23",
     "lodash": "^4.17.21",
-    "prettier": "^3.1.0",
+    "prettier": "^3.1.1",
     "remark": "^15.0.1",
     "remark-admonitions": "^1.2.1",
     "remark-directive": "^3.0.0",
@@ -72,7 +72,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@8.14.0",
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
   },
