@@ -47,24 +47,25 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@bring-it/npm": "^0.5.1",
-    "@nice-move/cli": "^0.11.3",
-    "@nice-move/eslint-config-base": "^0.11.1",
-    "@nice-move/prettier-config": "^0.10.0",
-    "ava": "^6.0.1",
-    "eslint": "^8.56.0",
+    "@bring-it/npm": "^0.5.9",
+    "@nice-move/cli": "^0.11.16",
+    "@nice-move/eslint-config-base": "^0.11.27",
+    "@nice-move/prettier-config": "^0.14.8",
+    "ava": "^6.2.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-ava": "^14.0.0",
-    "garou": "^0.6.23",
+    "garou": "^0.8.1",
     "lodash": "^4.17.21",
-    "prettier": "^3.1.1",
+    "prettier": "^3.3.3",
     "remark": "^15.0.1",
     "remark-admonitions": "^1.2.1",
     "remark-directive": "^3.0.0",
     "remark-frontmatter": "^5.0.0",
-    "remark-mdx": "^3.0.0",
+    "remark-mdx": "^3.1.0",
     "unist-util-remove-position": "^5.0.0",
-    "yaml": "^2.3.4"
+    "yaml": "^2.6.0"
   },
+  "packageManager": "pnpm@9.12.2",
   "engines": {
     "node": ">=18.0.0 || ^16.13.0"
   },
@@ -72,12 +73,8 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@8.14.0",
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
-  },
-  "nice-move": {
-    "import-groups": "nice-move-preset"
   },
   "prettier": "@nice-move/prettier-config"
 }
